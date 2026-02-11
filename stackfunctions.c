@@ -41,7 +41,7 @@ struct node* delete_node(struct node* head, int data){
         free(temp);
         return head;
     }
-    while (temp!=NULL && temp->data==data){
+    while (temp!=NULL && temp->data!=data){
         prev=temp;
         temp=temp->next;
     }
