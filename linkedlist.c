@@ -33,7 +33,7 @@ void traverse(){
     else{
         temp=head;
         do{
-            printf("%d\n",temp->data);
+            printf("%d ",temp->data);
             temp=temp->next;
         }
         while(temp!=head);
