@@ -1,5 +1,6 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
+
 struct node{
     int data;
     struct node *next;
@@ -40,10 +41,50 @@ void traverse(){
         printf("\n");
         }
     }
+
+void insertatend(int x){
+struct node *newnode, *temp;
+newnode=(struct node*)malloc(sizeof(struct node));
+newnode->data=x;
+
+if (head==NULL){
+    newnode->next=newnode;
+    head=newnode;
+}
+else{
+    temp=head;
+    while(temp->next != head){
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    newnode->next=head;
+}
+}
+void deleteatbeginning(){
+    struct node *temp, *last;
+    if(head==NULL){
+        printf("The list is empty\n");
+    }
+    else if(head->next==head){
+        free(head);
+        head=NULL;
+    }
+    else{
+        last=head;
+        while(last->next !=head){
+            last=last->next;
+        }
+        temp=head;
+        head=head->next;
+        last->next=head;
+        free(temp);
+    }
+}
 int main(){
     insertbeginning(10);
     insertbeginning(20);
     insertbeginning(30);
+    insertatend(26);
     
     traverse();
     return 0;
